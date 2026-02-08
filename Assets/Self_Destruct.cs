@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Self_Destruct : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject effectz;
     void Start()
     {
-        Destroy(gameObject,2f);
+        Invoke("DoSomethingAfterDelay", 2f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void DoSomethingAfterDelay()
     {
-        
+
+        Instantiate(effectz, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
